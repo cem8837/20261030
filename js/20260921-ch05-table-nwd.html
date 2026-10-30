@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-hant-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch05-表格(table)-260921</title>
+    <link rel="stylesheet" href="myall.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<style>
+    @media screen and (max-width:768px) {
+        .table-rwd thead{
+            display:none;
+        }
+
+        .table-rwd tbody tr{
+            display: block;
+            border: 3px solid var(--border003);
+            margin-top: 15px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px 2px var(--shad0w01);
+        }
+
+        .table-rwd tbody tr td{
+            display:block
+        }
+    }
+<body>
+    <div class="container">
+        <div class="display-1 fw-500 text-center ">ch05-表格(table)-RWD</div>
+
+           <table class="table table-bordered table-rwd" >
+             <thead class="table-dark">
+                <tr>
+                    <th>產品編好</th>
+                    <th>產品名稱</th>
+                    <th>產品數量</th>
+                    <th>產品價格</th>
+                    <th>產品說明</th>
+                </tr>
+
+             </thead>
+             <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>美式咖啡</td>
+                    <td>10</td>
+                    <td>60</td>
+                    <td>無糖去冰</td>
+                </tr>
+                 <tr>
+                    <td>03</td>
+                    <td class=>特大美式</td>
+                    <td>80</td>
+                    <td>深烘培</td>
+                </tr>
+                <tr>
+                    <td>04</td>
+                    <td>特大拿鐵</td>
+                    <td>100</td>
+                    <td>使用乳香世家</td>
+                </tr>
+            </table>
+            </tbody>
+                
+    </div>  
+    
+</body>
+</html>

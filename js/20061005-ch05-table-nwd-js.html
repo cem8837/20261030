@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-hant-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch5.練習表格</title>
+    <link rel="stylesheet" href="myall.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        @media screen and (max-width:768px) {
+            .table-rwd thead {
+                display: none;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                border: 3px solid var(--border003);
+                margin-top: 15px;
+                border-radius: 10px;
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                overflow: hidden;
+            }
+
+            .table-rwd tbody tr td::before {
+                /* 確保這裡抓取的是 data-th */
+                content: attr(data-th) "：" ;
+                font-weight: bold;
+                font-size: 18px;
+                color: var(--border003);
+                width: 30%;
+                float: left;
+                text-align: right;
+                padding-right: 15px;
+            }
+
+            /* 【修正重點】修正 CSS 選擇器，讓 span.table-col 順利生效 */
+            .table-rwd tbody tr td span.table-col {
+                width: 70%;
+                float: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="display-1 fw900">ch5. 表格(table)</div>
+    
+        <table class="table table-striped table-bordered table-hover table-sm table-rwd">
+            <caption>
+                產品列表1.0
+            </caption>
+            <thead class="table-dark">
+                <tr>
+                    <th width="10%">編號</th>
+                    <th width="20%">客戶姓名</th>
+                    <th width="20%">訂單內容</th>
+                    <th width="10%">訂單數量</th>
+                    <th width="10%">訂單價格</th>
+                    <th width="20%">下定時間</th>
+                    <th width="10%">訂單狀態</th>
+                </tr>
+            </thead>
+            <tbody id="mytbody">
+           
+                <tr>
+                    <td data-th="訂單編號"><span class="table-col">xxx</span></td>
+                    <td data-th="客戶姓名"><span class="table-col">xxx</span></td>
+                    <td data-th="訂單內容"><span class="table-col">xxxx</span></td>
+                    <td data-th="訂單數量"><span class="table-col">xxx</span></td>
+                    <td data-th="訂單價格"><span class="table-col">x</span></td>
+                    <td data-th="下定時間"><span class="table-col">xx</span></td>
+                    <td data-th="訂單狀態"><span class="table-col">xxxx</span></td>
+                </tr>
+
+            </tbody>
+        </table>
+     </div> 
+     <script src="bootstrap.bundle.min.js"></script>
+     <script src="jquery-4.0.0.js"></script>
+     <script>
+        // AI陣列練習
+         const orders = [
+            {
+                "orderId": "SB001",
+                "customerName": "王小明",
+                "product": {
+                    "id": "01",
+                    "name": "紅茶",
+                    "price": 50
+                },
+                "quantity": 2,
+                "total": 100,
+                "orderTime": "2026-10-05 09:10",
+                "status": "已完成"
+            },
+            {
+                "orderId": "SB002",
+                "customerName": "陳美玲",
+                "product": {
+                    "id": "02",
+                    "name": "綠茶",
+                    "price": 40
+                },
+                "quantity": 1,
+                "total": 40,
+                "orderTime": "2026-10-05 09:25",
+                "status": "製作中"
+            },
+            {
+                "orderId": "SB003",
+                "customerName": "林志豪",
+                "product": {
+                    "id": "03",
+                    "name": "美式咖啡",
+                    "price": 75
+                },
+                "quantity": 2,
+                "total": 150,
+                "orderTime": "2026-10-05 09:40",
+                "status": "已完成"
+            },
+            {
+                "orderId": "SB004",
+                "customerName": "張雅婷",
+                "product": {
+                    "id": "04",
+                    "name": "拿鐵咖啡",
+                    "price": 95
+                },
+                "quantity": 1,
+                "total": 95,
+                "orderTime": "2026-10-05 10:05",
+                "status": "製作中"
+            },
+            {
+                "orderId": "SB005",
+                "customerName": "吳俊傑",
+                "product": {
+                    "id": "05",
+                    "name": "焦糖瑪奇朵",
+                    "price": 135
+                },
+                "quantity": 2,
+                "total": 270,
+                "orderTime": "2026-10-05 10:20",
+                "status": "已完成"
+            },
+            {
+                "orderId": "SB006",
+                "customerName": "李佳蓉",
+                "product": {
+                    "id": "06",
+                    "name": "摩卡",
+                    "price": 125
+                },
+                "quantity": 1,
+                "total": 125,
+                "orderTime": "2026-10-05 10:45",
+                "status": "待取餐"
+            },
+            {
+                "orderId": "SB007",
+                "customerName": "周建宏",
+                "product": {
+                    "id": "07",
+                    "name": "星冰樂",
+                    "price": 150
+                },
+                "quantity": 1,
+                "total": 150,
+                "orderTime": "2026-10-05 11:00",
+                "status": "製作中"
+            },
+            {
+                "orderId": "SB008",
+                "customerName": "蔡佩珊",
+                "product": {
+                    "id": "08",
+                    "name": "抹茶那堤",
+                    "price": 130
+                },
+                "quantity": 2,
+                "total": 260,
+                "orderTime": "2026-10-05 11:15",
+                "status": "已完成"
+            },
+            {
+                "orderId": "SB009",
+                "customerName": "許家豪",
+                "product": {
+                    "id": "09",
+                    "name": "冷萃咖啡",
+                    "price": 110
+                },
+                "quantity": 1,
+                "total": 110,
+                "orderTime": "2026-10-05 11:30",
+                "status": "待取餐"
+            },
+            {
+        "orderId": "SB010",
+        "customerName": "鄭怡君",
+        "product": {
+            "id": "10",
+            "name": "香草風味拿鐵",
+            "price": 120
+        },
+        "quantity": 3,
+        "total": 360,
+        "orderTime": "2026-10-05 11:45",
+        "status": "已完成"
+    }
+];
+    // 使用for迴圈
+    $("#mytbody").empty();
+    for ( i=0 ; i<10 ; i++ ) {
+        // console.log(orders[i].orderId);
+        // console.log(orders[i].customerName);
+        // console.log(orders[i].product);
+        // console.log(orders[i].quantity);
+        const strHTML = `<tr>
+                    <td data-th="訂單編號"><span class="table-col">${orders[i].orderId}</span></td>
+                    <td data-th="客戶姓名"><span class="table-col">${orders[i].customerName}</span></td>
+                    <td data-th="訂單內容"><span class="table-col">${orders[i].product.name}</span></td>
+                    <td data-th="訂單數量"><span class="table-col">${orders[i].quantity}</span></td>
+                    <td data-th="訂單價格"><span class="table-col">${orders[i].total}</span></td>
+                    <td data-th="下定時間"><span class="table-col">${orders[i].orderTime}</span></td>
+                    <td data-th="訂單狀態"><span class="table-col">${orders[i].status}</span></td>
+                </tr>`;
+        $("#mytbody").append(strHTML);
+    }
+     </script>
+</body>
+</html>

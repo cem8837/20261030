@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-hant-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅館民宿-觀光資料表</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="myall.css">
+</head>
+<body>
+   <script src="bootstrap.bundle.min.js"></script>
+   <script src="jquery-4.0.0.js"></script>
+   <script>
+    // 串接;介接
+    $.ajax({
+        type: "GET",
+        url: "js/HotelList.json",
+        dataType: "json",
+        success: showdata,
+        error: function (){
+            console.log("介接資料失敗!");
+        }
+    });
+     function showdata(data) {
+        console.log(data);
+     }
+   </script>
+    
+</body>
+</html>

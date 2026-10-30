@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
+            margin: 0;
+            padding: 0;
+        }
+        body{
+           font-family: "Zen Maru Gothic", sans-serif;
+        }
+       :root {
+            --bg001: #F4F2EC;       /* 主背景：柔和乳白 */
+            --bg002: #EAE5DC;       /* 次要背景 / 卡片背景：燕麥灰白 */
+           --bg003: #222222;
+            --text001: #4A535A;     /* 主要文字：深板岩灰 */
+            --text002: #827B75;     /* 次要與說明文字：暖灰棕 */
+            --border001: #D5CFC7;   /* 一般邊框：淺砂灰 */
+            --border002: #B0A89E;   /* 強調邊框：灰褐線條 */
+            --border003:#a3cc7c;
+            --btn001: #131414;      /* 主要按鈕：霧灰藍 */
+            --btn002: #8A9A86;      /* 次要按鈕：鼠尾草綠 */
+            --btnhover: #5A6A7A;    /* 按鈕懸停狀態：深霧藍 */
+            --shadow01:#d9e5b6;
+
+            }
+}
+        
+        .fw-100{
+            font-weight: 100;
+        }
+         .fw-200{
+            font-weight: 200;
+        }
+         .fw-\300{
+            font-weight: 300;
+        }
+         .fw-400{
+            font-weight: 400;
+        }
+         .fw-500{
+            font-weight: 500;
+        }
+         .fw-600{
+            font-weight: 600;
+        }
+         .fw-700{
+            font-weight: 700;
+        }
+         .fw-800{
+            font-weight: 800;
+        }
+         .fw-900{
+            font-weight: 900;    
+        }
+        
+        

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-hant-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch5.練習表格</title>
+    <link rel="stylesheet" href="myall.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        @media screen and (max-width:768px) {
+            .table-rwd thead {
+                display: none;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                border: 3px solid var(--border003);
+                margin-top: 15px;
+                border-radius: 10px;
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                overflow: hidden;
+            }
+
+            .table-rwd tbody tr td::before {
+                /* 確保這裡抓取的是 data-th */
+                content: attr(data-th) "：" ;
+                font-weight: bold;
+                font-size: 18px;
+                color: var(--border003);
+                width: 30%;
+                float: left;
+                text-align: right;
+                padding-right: 15px;
+            }
+
+            /* 【修正重點】修正 CSS 選擇器，讓 span.table-col 順利生效 */
+            .table-rwd tbody tr td span.table-col {
+                width: 70%;
+                float: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="display-1 fw900">ch5. 表格(table)</div>
+    
+        <table class="table table-striped table-bordered table-hover table-sm table-rwd">
+            <caption>
+                產品列表1.0
+            </caption>
+            <thead class="table-dark">
+                <tr>
+                    <th width="10%">編號</th>
+                    <th width="30%">產品圖片</th>
+                    <th width="20%">產品名稱</th>
+                    <th width="20%">產品價格</th>
+                    <th width="20%">產品備註</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 第 1 列 -->
+                <tr>
+                    <td data-th="編號"><span class="table-col">01</span></td>
+                    <td data-th="產品圖片"><span class="table-col"><img src="images/land01.avif" class="img-fluid" alt=""></span></td>
+                    <td data-th="產品名稱"><span class="table-col">美式咖啡</span></td>
+                    <td data-th="產品價格" class="table-danger"><span class="table-col"><del>80</del>60</span></td>
+                    <td data-th="產品備註"><span class="table-col">淺烘培</span></td>
+                </tr>
+                <!-- 第 2 列 -->
+                <tr>
+                    <td data-th="編號"><span class="table-col">02</span></td>
+                    <td data-th="產品圖片"><span class="table-col"><img src="images/land01.avif" class="img-fluid" alt=""></span></td>
+                    <td data-th="產品名稱"><span class="table-col">拿鐵</span></td>
+                    <td data-th="產品價格"><span class="table-col">80</span></td>
+                    <td data-th="產品備註"><span class="table-col">使用鮮奶</span></td>
+                </tr>
+                <!-- 第 3 列（已補齊漏掉的 data-th 與 span） -->
+                <tr>
+                    <td data-th="編號"><span class="table-col">03</span></td>
+                    <td data-th="產品圖片"><span class="table-col"><img src="images/land01.avif" class="img-fluid" alt=""></span></td>
+                    <td data-th="產品名稱" class="bg-danger"><span class="table-col">特大美式</span></td>
+                    <td data-th="產品價格"><span class="table-col">80</span></td>
+                    <td data-th="產品備註"><span class="table-col">深烘培</span></td>
+                </tr>
+                <!-- 第 4 列（已補齊漏掉的 data-th 與 span） -->
+                <tr>
+                    <td data-th="編號"><span class="table-col">04</span></td>
+                    <td data-th="產品圖片"><span class="table-col"><img src="images/land01.avif" class="img-fluid" alt=""></span></td>
+                    <td data-th="產品名稱"><span class="table-col">特大拿鐵</span></td>
+                    <td data-th="產品價格"><span class="table-col">100</span></td>
+                    <td data-th="產品備註"><span class="table-col">使用乳香世家</span></td>
+                </tr>
+            </tbody>
+        </table>
+     </div>   
+</body>
+</html>

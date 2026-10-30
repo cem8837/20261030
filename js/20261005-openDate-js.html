@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-hant-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>openDATE練習</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="myall.css">
+    <style>  @media screen and (max-width:768px) {
+            .table-rwd thead {
+                display: none;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                border: 3px solid var(--border003);
+                margin-top: 15px;
+                border-radius: 10px;
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                overflow: hidden;
+            }
+
+            .table-rwd tbody tr td::before {
+                /* 確保這裡抓取的是 data-th */
+                content: attr(data-th) "：" ;
+                font-weight: bold;
+                font-size: 18px;
+                color: var(--border003);
+                width: 30%;
+                float: left;
+                text-align: right;
+                padding-right: 15px;
+            }
+
+            /* 【修正重點】修正 CSS 選擇器，讓 span.table-col 順利生效 */
+            .table-rwd tbody tr td span.table-col {
+                width: 70%;
+                float: left;
+            }
+        }
+        </style>
+      
+</head>
+        <body>
+            <div class="container">
+                <table class="table table-bordered table-rwd">
+             
+                    <thead class="table-dark">
+                        <tr>
+                            <th width="10%">名稱</th>
+                            <th width="10%">照片</th>
+                            <th width="10%">地址</th>
+                            <th width="10%">電話</th>
+                            <th width="10%">縣市</th>
+                            <th width="10%">連結</th>
+                            <th width="10%">簡介</th>
+                        </tr>
+                        
+                    </thead>
+                 <tbody id="mytbody">
+                    <!-- <tr>
+                        <td data-th="名稱"><span class="table-col">${food[i].Name}</span></td>
+                        <td data-th="照片"><span class="table-col">${food[i].customerName}</span></td>
+                        <td data-th="地址"><span class="table-col">${food[i].product.name}</span></td>
+                        <td data-th="電話"><span class="table-col">${food[i].quantity}</span></td>
+                        <td data-th="縣市"><span class="table-col">${food[i].total}</span></td>
+                        <td data-th="連結"><span class="table-col">${food[i].orderTime}</span></td>
+                        <td data-th="簡介"><span class="table-col">${food[i].status}</span></td>
+                    </tr> -->
+                </tbody>   
+                </table>
+                
+                
+                </div>
+            <script src="bootstrap.bundle.min.js"></script>
+            <script src="jquery-4.0.0.js"></script>
+            <script src="TravelFood.js"></script>
+            <script>
+                console.log(food);
+                // 1.依據opendata的資料設計適合的table
+                // 2.將opendata渲染至1.table(RWD)
+             // 使用for迴圈
+    $("#mytbody").empty();
+    for ( i=0 ; i<10 ; i++ ) {
+       
+        const strHTML = `<tr>
+                    <td data-th="名稱"><span class="table-col">${food[i].Name}</span></td>
+                    <td data-th="照片"><span class="table-col"><img src="${food[i].PicURL}"
+                                                                    class="img-fluid" alt=""></span></td>
+                    <td data-th="地址"><span class="table-col">${food[i].City}${food[i].Town}${food[i].Address}</span></td>
+                    <td data-th="電話"><span class="table-col">${food[i].Tel}</span></td>
+                    <td data-th="縣市"><span class="table-col">${food[i].City}</span></td>
+                    <td data-th="連結"><span class="table-col"><a href="${food[i].Url}">連結</a></span></td>
+                    <td data-th="簡介"><span class="table-col">${food[i].HostWords}</span></td>
+                </tr>`;
+        $("#mytbody").append(strHTML);
+    }   
+
+
+            </script>
+        </body>
+</html>
